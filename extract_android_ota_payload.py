@@ -115,6 +115,7 @@ def main(filename, output_dir):
   payload.Init()
 
   for p in payload.manifest.partitions:
+    if p.partition_name != 'boot': continue
     name = p.partition_name + '.img'
     print("Extracting '%s'" % name)
     fname = os.path.join(output_dir, name)
